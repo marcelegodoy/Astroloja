@@ -6,6 +6,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 0px 20px;
+  margin-bottom: 40px;
 }
 
 .card-trip > img {
@@ -64,9 +65,10 @@
 }
 
 .flex-container {
-  display: flex;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
   justify-content: space-between;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 
