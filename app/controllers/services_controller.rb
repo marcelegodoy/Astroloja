@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   def index
+    @services = policy_scope(Service)
   end
 
   def show
@@ -9,6 +10,7 @@ class ServicesController < ApplicationController
   end
 
   def create
+
   end
 
   def edit
@@ -18,6 +20,7 @@ class ServicesController < ApplicationController
 
   def update
     @service = Service.find(params[:id])
+    authorize @service
     if @service.update(service_params)
       redirect_to service_path(@service)
     else

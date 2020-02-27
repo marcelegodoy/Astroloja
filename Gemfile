@@ -19,6 +19,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+gem 'pundit'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
