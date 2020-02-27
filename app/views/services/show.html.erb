@@ -2,7 +2,11 @@
   <h1 class="text-center"><%= @service.name %></h1>
   <p class="text-center"><%= @service.description %></p>
   <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-  <h2 class="card-trip-pricing"><%= @service.user_id %></h2>
+  <h2 class="card-trip-pricing"><%= @service.user.name %></h2>
   <h2 class="card-trip-pricing"><%= @service.price %></h2>
-  <p class="text-center"><%= @service.city %> - <%= @service.state_id %></p>
+  <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
+
+  <%= @service.categories.each do |category|  %>
+    <p class="text-center"><%= catergory.name %></p>
+  <% end %>
 </div>
