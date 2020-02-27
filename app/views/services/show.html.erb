@@ -1,12 +1,13 @@
 <div class="container">
   <h1 class="text-center"><%= @service.name %></h1>
   <p class="text-center"><%= @service.description %></p>
-  <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-  <h2 class="card-trip-pricing"><%= @service.user.name %></h2>
+  <h2 class="card-trip-pricing"><img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />  <%= @service.user.name %></h2>
   <h2 class="card-trip-pricing"><%= @service.price %></h2>
   <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
+    <p class="text-center"><%= @service.category_id %></p>
 
-  <%= @service.categories.each do |category|  %>
-    <p class="text-center"><%= catergory.name %></p>
-  <% end %>
+<p><%= link_to 'Edit this service', edit_service_path(@service) %></p>
+<p><%= link_to 'Remove this service', service_path, method: :delete %></p>
+<p><%= link_to '↩️ Back to shop', services_path %></p>
+
 </div>
