@@ -9,11 +9,28 @@ class ServicePolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
+  def update?
+    user?
+  end
+
   def create?
-    record.user == user
+    user?
   end
 
   def edit?
+    user?
+  end
+
+  def destroy?
+  end
+
+  private
+
+  def user?
     record.user == user
   end
 end
