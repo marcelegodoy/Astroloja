@@ -15,7 +15,7 @@ categories_array = ["Orixás", "Tarot de Marselha", "Búzios", "Trabalho de Magi
 
 categories_array.each do |category_service|
   Category.create(name: category_service)
-# end
+end
 
 User.create(name: "Luiza", email:"teste@gmail.com", password:"123123")
 
