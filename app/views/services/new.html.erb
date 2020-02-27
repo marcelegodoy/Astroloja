@@ -1,2 +1,31 @@
-<h1>Services#new</h1>
-<p>Find me in app/views/services/new.html.erb</p>
+<h1>Create new service</h1>
+
+<%= simple_form_for [@service] do |f| %>
+  <div>
+    <%= f.input :name %>
+  </div>
+
+  <div>
+    <%= f.input :description %>
+  </div>
+
+  <div>
+    <%= f.input :city %>
+  </div>
+
+  <div>
+    <%= f.input :state_id, collection: @states %>
+  </div>
+
+  <div>
+    <%= f.input :category_id, collection: @categorys %>
+  </div>
+
+  <div>
+    <%= f.input :price %>
+  </div>
+
+  <div>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

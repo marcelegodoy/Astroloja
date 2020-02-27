@@ -1,2 +1,15 @@
-<h1>Services#index</h1>
-<p>Find me in app/views/services/index.html.erb</p>
+<div class="flex-container">
+    <% @services.each do |service| %>
+        <div class="card-trip">
+          <img src="https://i.picsum.photos/id/1042/500/200.jpg" />
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= link_to service.name, service_path(service) %></h2>
+              <p><%=service.description %></p>
+            </div>
+            <h2 class="card-trip-pricing"><%= service.price %></h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+    <% end %>
+</div>
