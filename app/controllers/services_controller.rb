@@ -27,6 +27,8 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    @states = State.all
+    @categorys = Category.all
     @service = Service.find(params[:id])
 
   end
