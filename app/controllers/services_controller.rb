@@ -25,9 +25,17 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    @service = Service.find(params[:id])
+
   end
 
   def update
+    @service = Service.find(params[:id])
+    if @service.update(service_params)
+      redirect_to service_path(@service)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -42,7 +50,6 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def service_params
     params.require(:service).permit(:name, :description, :city, :state_id, :category_id, :price)
   end
