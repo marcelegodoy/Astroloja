@@ -8,12 +8,14 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    authorize @service
   end
 
   def new
     @service = Service.new
     @states = State.all
     @categorys = Category.all
+    authorize @service
   end
 
   def create
@@ -22,6 +24,7 @@ class ServicesController < ApplicationController
     @service.save
     if @service.save
       redirect_to service_path(@service)
+      authorize @service
     else
       render :new
     end
@@ -31,7 +34,7 @@ class ServicesController < ApplicationController
     @states = State.all
     @categorys = Category.all
     @service = Service.find(params[:id])
-
+    authorize @service
   end
 
   def update
@@ -47,6 +50,7 @@ class ServicesController < ApplicationController
   def destroy
     @service.destroy
     redirect_to services_path
+    authorize @service
   end
 
   private
