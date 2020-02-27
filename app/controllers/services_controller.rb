@@ -1,4 +1,6 @@
 class ServicesController < ApplicationController
+  before_action :set_service, only: [:show, :edit, :update, :destroy]
+
   def index
   end
 
@@ -7,10 +9,19 @@ class ServicesController < ApplicationController
 
   def new
     @service = Service.new
+    @states = State.all
+    @categorys = Category.all
   end
 
   def create
-    raise
+    @service = Service.new(service_params)
+    @service.user = current_user
+    @service.save
+    if @service.save
+      redirect_to service_path(@service)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -20,6 +31,8 @@ class ServicesController < ApplicationController
   end
 
   def destroy
+    @service.destroy
+    redirect_to services_path
   end
 
   private
@@ -31,7 +44,7 @@ class ServicesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def service_params
-    params.require(:service).permit(:name, :description, :city, :state, :category, :price)
+    params.require(:service).permit(:name, :description, :city, :state_id, :category_id, :price)
   end
 
 end
