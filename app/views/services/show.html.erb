@@ -1,8 +1,10 @@
 <div class="container">
   <div class="service_photo">
-    <% if @service.photo.key.nil? %>
+    <% if @service.photo.attached? %>
       <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
-    <% end%>
+    <% else %>
+      <%= cl_image_tag "https://i.picsum.photos/id/1042/500/200.jpg", height: 300, width: 400, crop: :fill %>
+    <% end %>
   </div>
   <h1 class="text-center"><%= @service.name %></h1>
   <p class="text-center"><%= @service.description %></p>
