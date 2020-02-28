@@ -1,15 +1,13 @@
-<h1>Create new service</h1>
+<h1>Service description</h1>
 
-<%= simple_form_for @order do |f| %>
-  <div>
-    <%= f.input :name %>
-  </div>
+<div class="container">
+  <h1 class="text-center"><%= @service.name %></h1>
+  <p class="text-center"><%= @service.description %></p>
+  <h2 class="card-trip-pricing"><%= @service.price %></h2>
+  <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
+    <% if policy(@service).edit? %>
+      <p><%= button_to 'Buy', service_orders_path %></p>
+    <% end %>
+<p><%= link_to '↩️ Cancel', service_path(@service) %></p>
 
-  <div>
-    <%= f.input :description %>
-  </div>
-
-  <div>
-    <%= f.button :submit, class: 'btn btn-primary' %>
-  </div>
-<% end %>
+</div>
