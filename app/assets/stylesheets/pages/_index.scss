@@ -2,6 +2,7 @@
 @import "home";
 
 .card-trip {
+  height: 40vh;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -10,7 +11,7 @@
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 25vh;
   width: 100%;
   object-fit: cover;
 }
