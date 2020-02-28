@@ -6,17 +6,26 @@
       <%= cl_image_tag "https://i.picsum.photos/id/1042/500/200.jpg", height: 300, width: 400, crop: :fill %>
     <% end %>
   </div>
-  <h1 class="text-center"><%= @service.name %></h1>
-  <p class="text-center"><%= @service.description %></p>
-  <h2 class="card-trip-pricing"><img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />  <%= @service.user.name %></h2>
-  <h2 class="card-trip-pricing"><%= @service.price %></h2>
-  <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
-    <p class="text-center"><%= @service.category_id %></p>
+  <div class="service-title">
+   <h1 class="text-center"><%= @service.name %></h1>
+  </div>
+    <p class="text-center"><%= @service.description %></p>
+    <h2 class="card-trip-pricing"><%= @service.price %></h2>
+    <p class="text-center"><%= @service.category.name %></p>
+
+  <div class="notification">
+    <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+    <div class="notification-content">
+      <h2 class="text-center"><%= @service.user.name %></h2>
+      <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
+    </div>
+  </div>
 
     <% if policy(@service).edit? %>
       <p><%= link_to 'Edit this service', edit_service_path(@service) %></p>
       <p><%= link_to 'Remove this service', service_path, method: :delete %></p>
     <% end %>
-<p><%= link_to '↩️ Back to shop', services_path %></p>
+    <p><%= link_to '↩️ Back to shop', services_path %></p>
+
 
 </div>
