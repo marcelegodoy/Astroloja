@@ -2,7 +2,7 @@
 @import "home";
 
 .card-trip {
-  height: 40vh;
+  height: 35vh;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -33,7 +33,7 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   position: relative;
 }
 
@@ -43,6 +43,18 @@
   top: -20px;
   width: 40px;
 }
+
+// @media (max-width: 992px)
+// .cards {
+//     display: grid;
+//     grid-template-columns: 1fr 1fr;
+// }
+
+// @media (max-width: 768px)
+// .cards {
+//     display: grid;
+//     grid-template-columns: 1fr;
+// }
 
 .banner {
   background-size: cover;
