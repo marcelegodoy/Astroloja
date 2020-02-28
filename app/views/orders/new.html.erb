@@ -1,0 +1,15 @@
+<h1>Create new service</h1>
+
+<%= simple_form_for @order do |f| %>
+  <div>
+    <%= f.input :name %>
+  </div>
+
+  <div>
+    <%= f.input :description %>
+  </div>
+
+  <div>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
