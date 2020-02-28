@@ -84,3 +84,9 @@
   background: #1BCB7F;
   color: white;
 }
+
+.service_photo img {
+  width: 1200px;
+  height: 250px;
+  object-fit: cover;
+}

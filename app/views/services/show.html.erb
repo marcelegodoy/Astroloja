@@ -1,5 +1,7 @@
 <div class="container">
-  <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="service_photo">
+    <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
   <h1 class="text-center"><%= @service.name %></h1>
   <p class="text-center"><%= @service.description %></p>
   <h2 class="card-trip-pricing"><img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />  <%= @service.user.name %></h2>
