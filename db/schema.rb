@@ -15,6 +15,27 @@ ActiveRecord::Schema.define(version: 2020_02_28_173323) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -41,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_173323) do
     t.bigint "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
     t.index ["category_id"], name: "index_services_on_category_id"
     t.index ["state_id"], name: "index_services_on_state_id"
     t.index ["user_id"], name: "index_services_on_user_id"
@@ -71,6 +93,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_173323) do
     t.index ["state_id"], name: "index_users_on_state_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "orders", "services"
   add_foreign_key "orders", "users"
   add_foreign_key "services", "categories"

@@ -3,6 +3,7 @@ class Service < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :state
+  has_one_attached :photo
 
   validates :description, presence: true
   validates :name, presence: true

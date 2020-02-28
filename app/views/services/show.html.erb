@@ -1,4 +1,11 @@
 <div class="container">
+  <div class="service_photo">
+    <% if @service.photo.attached? %>
+      <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <%= cl_image_tag "https://i.picsum.photos/id/1042/500/200.jpg", height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
   <h1 class="text-center"><%= @service.name %></h1>
   <p class="text-center"><%= @service.description %></p>
   <h2 class="card-trip-pricing"><img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />  <%= @service.user.name %></h2>
