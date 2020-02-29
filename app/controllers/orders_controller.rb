@@ -14,6 +14,11 @@ class OrdersController < ApplicationController
     end
   end
 
+  def my_orders
+    @orders = Order.where(user_id: current_user.id)
+    authorize @orders
+  end
+
   private
 
   def set_service

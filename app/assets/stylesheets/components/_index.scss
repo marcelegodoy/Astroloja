@@ -2,3 +2,66 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+.container {
+    max-width: 1140px;
+}
+
+.hero-banner::before {
+    content: "";
+    display: block;
+    width: 35%;
+    height: 100%;
+    background: #384aeb;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-banner {
+    z-index: 111;
+    height: 50vh;
+}
+
+.hero-banner {
+    background: #F1F6F7;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.offset-lg-1 {
+    margin-left: 7%;
+    margin-top: 15%;
+}
+
+.hero-banner__content {
+    max-width: 495px;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: 40vh;
+    width: 30vw;
+    object-fit: cover;
+    margin-top: 9%;
+}
+
+.button {
+    display: inline-block;
+    border: 1px solid #384aeb;
+    border-radius: 30px;
+    color: #222;
+    font-weight: 500;
+    padding: 12px 50px;
+    background: #384aeb;
+    color: #fff;
+    transition: all .4s ease;
+}
+
+.flex-container {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+  justify-content: space-between;
+  margin-top: 40px;
+  background-color: #fff;
+}

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'users/show'
+  get 'services/myservices', to: 'services#my_services'
+  get 'orders/myorders', to: 'orders#my_orders'
   resources :services do
     resources :orders, only: [:new, :create]
   end

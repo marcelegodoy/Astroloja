@@ -8,5 +8,37 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
+}
+
+.header_area {
+    position: relative;
+    width: 100%;
+    z-index: 9999;
+    transition: background 0.4s, all 0.3s linear;
+    box-shadow: 0px 10px 27px 3px rgba(221,221,221,0.3);
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 100%;
+}
+
+#messages-button {
+    padding: 0px 15px;
+    background: transparent;
+    color: #222;
+    border-color: #EEEEEE;
+    border: 1px solid #384aeb;
+    border-radius: 30px;
+    margin-right: 20px;
 }

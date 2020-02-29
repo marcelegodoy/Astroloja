@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="service_photo">
     <% if @service.photo.attached? %>
       <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
@@ -8,16 +8,53 @@
   </div>
   <h1 class="text-center"><%= @service.name %></h1>
   <p class="text-center"><%= @service.description %></p>
-  <h2 class="card-trip-pricing"><img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />  <%= @service.user.name %></h2>
-  <h2 class="card-trip-pricing"><%= @service.price %></h2>
-  <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
     <p class="text-center"><%= @service.category_id %></p>
 
     <% if policy(@service).edit? %>
       <p><%= link_to 'Edit this service', edit_service_path(@service) %></p>
       <p><%= link_to 'Remove this service', service_path, method: :delete %></p>
     <% end %>
-<p><%= link_to '↩️ Back to shop', services_path %></p>
+      <p><%= link_to '↩️ Back to shop', services_path %></p>
 
-</div>
+</div> -->
+
+
+<div class="product_image_area">
+    <div class="container">
+      <div class="row s_product_inner">
+        <div class="col-lg-6">
+          <div class="owl-carousel owl-theme s_Product_carousel">
+            <div class="single-prd-item">
+              <% if @service.photo.attached? %>
+                <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <%= cl_image_tag "https://i.picsum.photos/id/1042/400/400.jpg", height: 400, width: 400, crop: :fill %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 offset-lg-1">
+          <div class="s_product_text">
+            <h3><%= @service.name %></h3>
+            <h2>R$ <%= @service.price %></h2>
+            <ul class="list">
+              <li>Category : <a class="active" href="#"><%= @service.category.name %></a></li>
+            </ul>
+            <p><%= @service.description %></p>
+             <a class="button primary-btn" href="#">Compre</a>
+            </div>
+            <div class="card_area d-flex align-items-center">
+              <h4 class="card-trip-pricing"><img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />  <%= @service.user.name %></h4>
+              <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% if policy(@service).edit? %>
+        <p><%= link_to 'Edit this service', edit_service_path(@service) %></p>
+        <p><%= link_to 'Remove this service', service_path, method: :delete %></p>
+      <% end %>
+      <p><%= link_to '↩️ Back to shop', services_path %></p>
+    </div>
+  </div
 
