@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create]
   end
 
+
   devise_for :users
   get 'users/:slug', to: 'users#show'
   get 'my_profile', to: 'users#my_profile'
