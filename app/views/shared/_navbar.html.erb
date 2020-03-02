@@ -2,7 +2,7 @@
   <div class="main_menu">
 
           <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-          <%= link_to services_path, class: "navbar-brand" do %>
+          <%= link_to root_path, class: "navbar-brand" do %>
             <i class="fab fa-galactic-republic"></i>
           <% end %>
           <form class="form-inline">
@@ -17,42 +17,15 @@
               <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                    <%= link_to "Home", services_path, class: "nav-link" %>
+                    <%= link_to "Home", root_path, class: "nav-link" %>
                   </li>
                   <li class="nav-item submenu dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                         aria-expanded="false">Categorias</a>
                     <ul class="dropdown-menu">
-                      <%= link_to "Baralho Cigano", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Búzios", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Cartomante", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Cromoterapia", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Ciências Ocultas", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Cromoterapia", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Florais", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Horóscopo", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Horóscopo Chinês", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Magia Branca", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Magia Negra", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Mapa Astral", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Metafísica", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Numerologia", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Ocultismo", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Orações", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Orixás", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Paganismo", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Quiromancia", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Reiki", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Simpatias", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Sinastria", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Tarot de Marselha", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Tarot Egípcio", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Trabalho de Magias", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Umbanda", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Vidência", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Umbanda", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Xamanismo", services_myservices_path, class: "dropdown-item" %>
-                      <%= link_to "Wicca", services_myservices_path, class: "dropdown-item" %>
+                      <% Category.all.each do |category| %>
+                        <%= link_to category.name, services_path(category: category), class: "dropdown-item" %>
+                      <% end %>
                     </ul>
                   </li>
                   <% if user_signed_in? %>
