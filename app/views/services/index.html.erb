@@ -1,14 +1,27 @@
-<div class="flex-container">
-    <% @services.each do |service| %>
-        <div class="card-trip">
-          <img src="https://i.picsum.photos/id/1042/500/200.jpg" />
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= link_to service.name, service_path(service) %></h2>
-              <p><%=service.description %></p>
-            </div>
-            <h2 class="card-trip-pricing"><%= service.price %></h2>
-          </div>
-        </div>
+<div class="container">
+  <form class="form-inline">
+    <%= form_tag(services_path, method: :get) do %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Busque serviços" %>
+      <%= submit_tag "Procurar", class: "btn btn-white btn-just-icon btn-round" %>
     <% end %>
+  </form>
+  <div class="flex-container">
+      <% @services.each do |service| %>
+          <div class="card-trip">
+            <% if service.photo.attached? %>
+              <%= cl_image_tag service.photo.key, crop: :fill %>
+            <% else %>
+              <%= cl_image_tag "https://i.picsum.photos/id/1042/400/400.jpg", crop: :fill %>
+            <% end %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= link_to service.name, service_path(service) %></h2>
+                <p><%=service.description %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= service.price %></h2>
+            </div>
+          </div>
+      <% end %>
+  </div>
 </div>
+

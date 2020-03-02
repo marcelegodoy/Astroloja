@@ -24,7 +24,11 @@
   <div class="flex-container">
       <% @services.each do |service| %>
           <div class="card-trip">
-            <img src="https://i.picsum.photos/id/1042/500/200.jpg" />
+            <% if service.photo.attached? %>
+              <%= cl_image_tag service.photo.key, crop: :fill %>
+            <% else %>
+              <%= cl_image_tag "https://i.picsum.photos/id/1042/400/400.jpg", crop: :fill %>
+            <% end %>
             <div class="card-trip-infos">
               <div>
                 <h2><%= link_to service.name, service_path(service) %></h2>
@@ -39,7 +43,11 @@
 <div class="flex-container">
     <% @services.each do |service| %>
         <div class="card-trip">
-          <img src="https://i.picsum.photos/id/1042/500/200.jpg" />
+          <% if service.photo.attached? %>
+            <%= cl_image_tag service.photo.key, crop: :fill %>
+          <% else %>
+            <%= cl_image_tag "https://i.picsum.photos/id/1042/400/400.jpg", crop: :fill %>
+          <% end %>
           <div class="card-trip-infos">
             <div>
               <h2><%= link_to service.name, service_path(service) %></h2>

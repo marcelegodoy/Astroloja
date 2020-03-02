@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:home, :index, :show]
+  skip_before_action :authenticate_user!, only: [:home, :index, :show, :search]
 
   def home
     @services = policy_scope(Service)
@@ -13,10 +13,22 @@ class ServicesController < ApplicationController
     @best_vendors = @orders.sort_by { |order| -order.service.user.name }.first(10)
   end
 
+  def search
+  end
+
   def index
     @services = policy_scope(Service)
     if params[:category]
       @services = @services.where(category_id: params[:category])
+    end
+    if params[:query].present?
+      sql_query = " \
+            services.name @@ :query \
+            OR services.description @@ :query \
+          "
+      @services = Service.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @services = Service.all
     end
   end
 
