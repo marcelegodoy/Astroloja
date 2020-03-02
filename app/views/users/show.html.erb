@@ -1,2 +1,24 @@
-<h1>Users#show</h1>
-<p>Public page</p>
+<div class='container'>
+  <div class="d-flex justify-content-center mt-5">
+    <%= cl_image_tag current_user.profile_photo.key, height: 200, width: 200, crop: :fill, class: 'rounded-circle mx-auto' %>
+  </div>
+
+  <div class = 'd-flex justify-content-center mt-0'> <h2 class="title"><%= @user.name %></h2></div>
+  <div>
+    <h3 class = 'd-flex ml-5'> <%= @user.username %></h3>
+    <h3 class = 'd-flex ml-5'> <%= @user.email %></h3>
+    <h3 class = 'd-flex ml-5'> <%= @user.city %></h3>
+    <h3 class = 'd-flex ml-5'> <%= @user.state.name %></h3>
+    <div>
+      <a class = 'btn btn primary'> Minhas compras </a>
+      <a class = 'btn btn primary'> Meus serviços </a>
+      <a href="/my_profile">Editar Perfil</a>
+
+
+    </div>
+
+
+
+  </div>
+</div>
+
