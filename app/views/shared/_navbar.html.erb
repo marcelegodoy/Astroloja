@@ -6,13 +6,13 @@
             <i class="fab fa-galactic-republic"></i>
           <% end %>
           <form class="form-inline">
-              <div class="form-group no-border">
-                <input type="text" class="form-control" placeholder="Procurar">
-              </div>
-              <button type="submit" class="btn btn-white btn-just-icon btn-round">
-                  <i class="fas fa-search"></i>
-              </button>
+            <%= form_tag services_path, method: :get do %>
+              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Busque serviços" %>
+              <%= submit_tag "Procurar", class: "btn btn-white btn-just-icon btn-round" %>
+            <% end %>
           </form>
+
+
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
               <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
                 <ul class="navbar-nav mr-auto">

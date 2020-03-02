@@ -13,6 +13,19 @@ class ServicesController < ApplicationController
     # @best_ users = @orders.service.sort_by { |user| -user.orders.size }.first(10)
   end
 
+  def search
+    @services = Service.all
+    if params[:query].present?
+      sql_query = " \
+        services.name @@ :query \
+        OR services.description @@ :query \
+      "
+      @services = Service.joins(:name).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @services
+    end
+  end
+
   def index
     @services = policy_scope(Service)
     if params[:category]
