@@ -106,8 +106,8 @@ ActiveRecord::Schema.define(version: 2020_03_02_192124) do
     t.string "description"
     t.string "city"
     t.bigint "state_id"
-    t.string "slug"
     t.string "username"
+    t.string "slug"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["state_id"], name: "index_users_on_state_id"

@@ -23,7 +23,15 @@
               <button type="button" class="btn btn-outline-dark"><%= link_to 'Buy', new_service_order_path(@service) %></button>
           </div>
           <div class="card_area d-flex align-items-center">
-            <h4 class="card-trip-pricing"><img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />  <%= @service.user.name %></h4>
+            <h4 class="card-trip-pricing">
+              <% if current_user.profile_photo.attached?  %>
+                <div class="d-flex justify-content-center mt-5">
+                  <%= cl_image_tag current_user.profile_photo.key, height: 100, width: 100, crop: :fill, class: 'rounded-circle mx-auto' %>
+                </div>
+              <% else %>
+                  <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", height: 100, width: 100, crop: :fill, class: 'rounded-circle mx-auto' %>
+              <% end %>
+              <%= @service.user.name %></h4>
             <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
           </div>
           </div>
