@@ -1,0 +1,16 @@
+<%= simple_form_for [@service, @review] do |f| %>
+
+  <div>
+    <%= f.input :user, placeholder: "#{ @user.name }" %>
+  </div>
+
+  <div>
+    <%= f.input :description %>
+  </div>
+
+  <div>
+    <%= f.input :stars %>
+  </div>
+
+  <%= f.submit "add a review", class: "btn btn-primary" %>
+<% end %>
