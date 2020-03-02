@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :services, dependent: :destroy
   has_many :orders, dependent: :destroy
   belongs_to :state
+  has_one_attached :profile_photo
 
   validates :name, presence: true
   validates :username, uniqueness: true, presence: true,  format: { with: /\A([a-z_0-9]*)\z/,
