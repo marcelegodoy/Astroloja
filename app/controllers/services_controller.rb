@@ -5,12 +5,12 @@ class ServicesController < ApplicationController
   def home
     @services = policy_scope(Service)
     # sort the services according to how many orders the have (desc). Get the first 10
-    @top_services = @services.sort_by { |service| -service.orders.size }.first(10)
+    @top_services = @services.sort_by { |service| -service.orders.size }.first(8)
     # get the last uploaded services in the database
-    @last_services = @services.last(10).reverse
+    @last_services = @services.last(8).reverse
     # pegar os usuarios que mais vendem serviços
     @orders = Order.all
-    @best_vendors = @orders.sort_by { |order| -order.service.user.name }.first(10)
+    @best_vendors = @orders.sort_by { |order| -order.service.user.name }.first(8)
   end
 
   def search
@@ -26,9 +26,7 @@ class ServicesController < ApplicationController
             services.name @@ :query \
             OR services.description @@ :query \
           "
-      @services = Service.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @services = Service.all
+      @services = @services.where(sql_query, query: "%#{params[:query]}%")
     end
   end
 

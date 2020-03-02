@@ -17,7 +17,7 @@
             <h3><%= @service.name %></h3>
             <h2>R$ <%= @service.price %></h2>
             <ul class="list">
-              <li>Category : <a class="active" href="#"><%= @service.category.name %></a></li>
+              <li><p>Category : <%= link_to @service.category.name, services_path(category: @service.category) %></p></li>
             </ul>
             <p><%= @service.description %></p>
               <button type="button" class="btn btn-outline-dark"><%= link_to 'Buy', new_service_order_path(@service) %></button>

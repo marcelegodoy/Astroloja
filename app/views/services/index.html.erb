@@ -1,10 +1,4 @@
 <div class="container">
-  <form class="form-inline">
-    <%= form_tag(services_path, method: :get) do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Busque serviços" %>
-      <%= submit_tag "Procurar", class: "btn btn-white btn-just-icon btn-round" %>
-    <% end %>
-  </form>
   <div class="flex-container">
       <% @services.each do |service| %>
           <div class="card-trip">
