@@ -1,4 +1,4 @@
-class OrderPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -12,8 +12,7 @@ class OrderPolicy < ApplicationPolicy
   def create?
     true
   end
-
-  def my_orders?
+  def destroy?
     true
   end
 end

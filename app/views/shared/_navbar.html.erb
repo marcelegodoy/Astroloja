@@ -5,18 +5,20 @@
           <%= link_to root_path, class: "navbar-brand" do %>
             <i class="fab fa-galactic-republic"></i>
           <% end %>
-          <form class="form-inline">
-              <div class="form-group no-border">
-                <input type="text" class="form-control" placeholder="Procurar">
-              </div>
-              <button type="submit" class="btn btn-white btn-just-icon btn-round">
-                  <i class="fas fa-search"></i>
-              </button>
-          </form>
+
+
+            <%= form_tag services_path, method: :get, class: "form-inline" do %>
+              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Busque serviços" %>
+              <%= hidden_field_tag :query, params[:query], class: "form-control", placeholder: "Category" %>
+              <%= submit_tag "Procurar", class: "btn btn-white btn-just-icon btn-round" %>
+            <% end %>
+
+
+
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
               <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
                 <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
+                  <li id="messages-button" class="nav-item">
                     <%= link_to "Home", root_path, class: "nav-link" %>
                   </li>
                   <li class="nav-item submenu dropdown">
@@ -28,16 +30,15 @@
                       <% end %>
                     </ul>
                   </li>
+                  <li class="nav-item dropdown">
                   <% if user_signed_in? %>
-                    <li id="messages-button" class="nav-item">
-                      <%= link_to "Messages", "#", class: "nav-link" %>
-                    </li>
                     <li class="nav-item dropdown">
                       <% if current_user.profile_photo.attached?  %>
                         <%= cl_image_tag current_user.profile_photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
                       <% else %>
                         <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                       <% end %>
+
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <%= link_to "Minha conta", user_show_path(current_user.username), class: "dropdown-item" %>
                         <%= link_to "Meus serviços", services_myservices_path, class: "dropdown-item" %>

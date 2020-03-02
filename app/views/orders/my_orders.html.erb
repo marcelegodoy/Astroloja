@@ -1,3 +1,62 @@
+<h1 class="text-center">Meus Pedidos</h1>
 <% @orders.each do |order|  %>
-  <%= order.service.name %>
+  <div class="container">\
+
+    <h2 class="text-center"><%= order.service.name %></h2>
+    <p class="text-center"><%= order.service.description %></p>
+  </div>
+
+  <section class="order_details section-margin--small">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+            <div class="confirmation-card">
+              <h3 class="billing-title">Informações do pedido</h3>
+              <table class="order-rable">
+                <tr>
+                  <td>Order number</td>
+                  <td><%= order.service.id %></td>
+                </tr>
+                <tr>
+                  <td>Data</td>
+                  <td>29/02/2020</td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td>R$ <%= order.service.price %></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+            <div class="confirmation-card">
+              <h3 class="billing-title">Endereço de Cobrança</h3>
+              <table class="order-rable">
+                <tr>
+                  <td>Estado:</td>
+                  <td><%= order.service.state.name %></td>
+                </tr>
+                <tr>
+                  <td>Cidade:</td>
+                  <td><%= order.service.city %></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+            <div class="confirmation-card">
+              <h3 class="billing-title">Endereço do Vendedor</h3>
+              <table class="order-rable">
+                <tr>
+                  <td>Estado:</td>
+                  <td><%= order.service.state.name %></td>
+                </tr>
+                <tr>
+                  <td>Cidade:</td>
+                  <td><%= order.service.city %></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
 <% end  %>
