@@ -22,10 +22,6 @@
                 <td>Total</td>
                 <td>R$ <%= @service.price %></td>
               </tr>
-              <tr>
-                <td>Payment method</td>
-                <td>: Check payments</td>
-              </tr>
             </table>
           </div>
         </div>
@@ -81,9 +77,8 @@
               </tr>
             </tbody>
           </table>
-           <% if policy(@service).edit? %>
-            <p><%= button_to 'Buy', service_orders_path %></p>
-          <% end %>
+
+          <p><%= button_to 'Buy', service_orders_path %></p>
           <p><%= link_to '↩️ Cancel', service_path(@service) %></p>
         </div>
       </div>

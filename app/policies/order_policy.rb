@@ -5,11 +5,11 @@ class OrderPolicy < ApplicationPolicy
     end
   end
 
-  def new
+  def new?
     true
   end
 
-  def create
+  def create?
     true
   end
 

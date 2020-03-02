@@ -12,8 +12,7 @@
               <h4>Essa é a</h4>
               <h1>Astroloja</h1>
               <p>A sua melhor plataforma de encontrar e oferecer serviços espirituais</p>
-              <a class="button button-hero" href="#">Procure serviços</a>
-            </div>
+              <%= link_to "Procure serviços", services_path %>
           </div>
         </div>
       </div>
@@ -22,8 +21,9 @@
 
 <div class="container text-center"><h1>Mais Vendidos</h1></div>
   <div class="flex-container">
-      <% @services.each do |service| %>
+      <% @top_services.each do |service| %>
           <div class="card-trip">
+            <button type="button" class="btn btn-outline-dark"><%= link_to 'Buy', new_service_order_path(service) %></button>
             <% if service.photo.attached? %>
               <%= cl_image_tag service.photo.key, crop: :fill %>
             <% else %>
@@ -40,9 +40,11 @@
       <% end %>
   </div>
 
-<div class="flex-container">
-    <% @services.each do |service| %>
+<div class="container text-center"><h1>Novidades</h1></div>
+  <div class="flex-container">
+    <% @last_services.each do |service| %>
         <div class="card-trip">
+          <button type="button" class="btn btn-outline-dark"><%= link_to 'Buy', new_service_order_path(service) %></button>
           <% if service.photo.attached? %>
             <%= cl_image_tag service.photo.key, crop: :fill %>
           <% else %>
@@ -57,4 +59,5 @@
           </div>
         </div>
     <% end %>
+  </div>
 </div>

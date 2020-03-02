@@ -2,13 +2,16 @@ class OrdersController < ApplicationController
   before_action :set_service, only: [:new, :create]
 
   def new
+    @order = Order.new
+    authorize @order
   end
 
   def create
     @order = Order.new(user_id: current_user.id, service: @service, ordered_at: Date.today)
+    authorize @order
     @order.save
     if @order.save
-      redirect_to services_path
+      redirect_to orders_myorders_path
     else
       render :new
     end
@@ -23,7 +26,6 @@ class OrdersController < ApplicationController
 
   def set_service
     @service = Service.find(params[:service_id])
-    authorize @service
   end
 
   def order_params
