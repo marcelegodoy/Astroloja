@@ -17,10 +17,10 @@
             <h3><%= @service.name %></h3>
             <h2>R$ <%= @service.price %></h2>
             <ul class="list">
-              <li>Category : <a class="active" href="#"><%= @service.category.name %></a></li>
+              <li><p>Category : <%= link_to @service.category.name, services_path(category: @service.category) %></p></li>
             </ul>
             <p><%= @service.description %></p>
-              <a class="button primary-btn" href="#">Compre</a>
+              <button type="button" class="btn btn-outline-dark"><%= link_to 'Buy', new_service_order_path(@service) %></button>
           </div>
           <div class="card_area d-flex align-items-center">
             <h4 class="card-trip-pricing"><img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />  <%= @service.user.name %></h4>
@@ -28,6 +28,7 @@
           </div>
           </div>
         </div>
+
         <% if policy(@service).edit? %>
           <p><%= link_to 'Edit this service', edit_service_path(@service) %></p>
           <p><%= link_to 'Remove this service', service_path, method: :delete %></p>
