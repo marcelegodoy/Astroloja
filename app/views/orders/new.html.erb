@@ -1,13 +1,91 @@
-<h1>Service description</h1>
-
 <div class="container">
   <h1 class="text-center"><%= @service.name %></h1>
   <p class="text-center"><%= @service.description %></p>
-  <h2 class="card-trip-pricing"><%= @service.price %></h2>
-  <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
-    <% if policy(@service).edit? %>
-      <p><%= button_to 'Buy', service_orders_path %></p>
-    <% end %>
-<p><%= link_to '↩️ Cancel', service_path(@service) %></p>
-
 </div>
+
+<section class="order_details section-margin--small">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Informações do pedido</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Order number</td>
+                <td><%= @service.id %></td>
+              </tr>
+              <tr>
+                <td>Data</td>
+                <td>29/02/2020</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>R$ <%= @service.price %></td>
+              </tr>
+              <tr>
+                <td>Payment method</td>
+                <td>: Check payments</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Endereço de Cobrança</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Estado:</td>
+                <td><%= @service.state.name %></td>
+              </tr>
+              <tr>
+                <td>Cidade:</td>
+                <td><%= @service.city %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Endereço do Vendedor</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Estado:</td>
+                <td><%= @service.state.name %></td>
+              </tr>
+              <tr>
+                <td>Cidade:</td>
+                <td><%= @service.city %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="order_details_table">
+        <h2>Detalhes do Pedido</h2>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Serviço</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p><%= @service.name %></p>
+                </td>
+                <td>
+                  <p>R$ <%= @service.price %></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+           <% if policy(@service).edit? %>
+            <p><%= button_to 'Buy', service_orders_path %></p>
+          <% end %>
+          <p><%= link_to '↩️ Cancel', service_path(@service) %></p>
+        </div>
+      </div>
+    </div>
+  </section>

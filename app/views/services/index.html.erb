@@ -1,5 +1,4 @@
-
-<!--================ Hero banner start =================-->
+<!--================ Começo do banner =================-->
     <section class="hero-banner">
       <div class="container">
         <div class="row no-gutters align-items-center pt-60px">
@@ -20,6 +19,22 @@
       </div>
     </section>
     <!--================ Hero banner start =================-->
+
+<div class="container text-center"><h1>Mais Vendidos</h1></div>
+  <div class="flex-container">
+      <% @services.each do |service| %>
+          <div class="card-trip">
+            <img src="https://i.picsum.photos/id/1042/500/200.jpg" />
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= link_to service.name, service_path(service) %></h2>
+                <p><%=service.description %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= service.price %></h2>
+            </div>
+          </div>
+      <% end %>
+  </div>
 
 <div class="flex-container">
     <% @services.each do |service| %>

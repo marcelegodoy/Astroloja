@@ -3,65 +3,59 @@
 
           <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
           <%= link_to services_path, class: "navbar-brand" do %>
-            <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+            <i class="fab fa-galactic-republic"></i>
           <% end %>
-              <div class="form-row">
-                <div class="col-6">
-                  <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-                    <div class="search-form-control form-group">
-                      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-                    </div>
-                  </form>
-                </div>
-                <div class="col-6">
-                  <button name="button" type="submit" class="btn btn-flat">
-                      <i class="fas fa-search"></i> Search
-                  </button>
-                </div>
+          <form class="form-inline">
+              <div class="form-group no-border">
+                <input type="text" class="form-control" placeholder="Procurar">
               </div>
+              <button type="submit" class="btn btn-white btn-just-icon btn-round">
+                  <i class="fas fa-search"></i>
+              </button>
+          </form>
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
               <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
                 <ul class="navbar-nav mr-auto">
-                  <% if user_signed_in? %>
-                    <li class="nav-item active">
-                      <%= link_to "Home", services_path, class: "nav-link" %>
-                    </li>
-                    <li class="nav-item submenu dropdown">
-                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  <li class="nav-item active">
+                    <%= link_to "Home", services_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                         aria-expanded="false">Categorias</a>
-                      <ul class="dropdown-menu">
-                        <%= link_to "Baralho Cigano", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Búzios", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Cartomante", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Cromoterapia", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Ciências Ocultas", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Cromoterapia", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Florais", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Horóscopo", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Horóscopo Chinês", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Magia Branca", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Magia Negra", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Mapa Astral", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Metafísica", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Numerologia", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Ocultismo", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Orações", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Orixás", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Paganismo", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Quiromancia", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Reiki", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Simpatias", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Sinastria", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Tarot de Marselha", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Tarot Egípcio", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Trabalho de Magias", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Umbanda", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Vidência", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Umbanda", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Xamanismo", services_myservices_path, class: "dropdown-item" %>
-                        <%= link_to "Wicca", services_myservices_path, class: "dropdown-item" %>
-                      </ul>
-                    </li>
+                    <ul class="dropdown-menu">
+                      <%= link_to "Baralho Cigano", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Búzios", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Cartomante", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Cromoterapia", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Ciências Ocultas", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Cromoterapia", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Florais", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Horóscopo", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Horóscopo Chinês", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Magia Branca", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Magia Negra", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Mapa Astral", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Metafísica", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Numerologia", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Ocultismo", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Orações", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Orixás", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Paganismo", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Quiromancia", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Reiki", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Simpatias", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Sinastria", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Tarot de Marselha", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Tarot Egípcio", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Trabalho de Magias", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Umbanda", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Vidência", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Umbanda", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Xamanismo", services_myservices_path, class: "dropdown-item" %>
+                      <%= link_to "Wicca", services_myservices_path, class: "dropdown-item" %>
+                    </ul>
+                  </li>
+                  <% if user_signed_in? %>
                     <li id="messages-button" class="nav-item">
                       <%= link_to "Messages", "#", class: "nav-link" %>
                     </li>
@@ -88,3 +82,4 @@
 
   </div>
 </header>
+
