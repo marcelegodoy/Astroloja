@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
   has_many :orders
+  has_many :reviews
   belongs_to :user
   belongs_to :category
   belongs_to :state
