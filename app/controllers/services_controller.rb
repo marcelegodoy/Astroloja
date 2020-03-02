@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
     @last_services = @services.last(10).reverse
     # pegar os usuarios que mais vendem serviços
     @orders = Order.all
-    # @best_ users = @orders.service.sort_by { |user| -user.orders.size }.first(10)
+    @best_vendors = @orders.sort_by { |order| -order.service.user.name }.first(10)
   end
 
   def index

@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(user_id: current_user.id, service_id: @service.id, ordered_at: Date.today)
+    @order = Order.new(user_id: current_user.id, service: @service, ordered_at: Date.today)
     @order.save
     if @order.save
       redirect_to services_path
