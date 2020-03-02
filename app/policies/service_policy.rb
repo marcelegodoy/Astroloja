@@ -28,9 +28,14 @@ class ServicePolicy < ApplicationPolicy
   def destroy?
   end
 
+  def my_services?
+    true
+  end
+
   private
 
   def user?
     record.user == user
   end
+
 end

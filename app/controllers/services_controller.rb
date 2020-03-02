@@ -53,6 +53,11 @@ class ServicesController < ApplicationController
     authorize @service
   end
 
+  def my_services
+    @services = Service.where(user_id: current_user.id)
+    authorize @services
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

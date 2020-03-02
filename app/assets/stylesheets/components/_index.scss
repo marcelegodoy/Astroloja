@@ -2,3 +2,30 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+.container {
+    max-width: 1140px;
+}
+
+.hero-banner::before {
+    content: "";
+    display: block;
+    width: 35%;
+    height: 100%;
+    background: #384aeb;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-banner {
+    z-index: 111;
+    height: 50vh;
+}
+
+.hero-banner {
+    background: #F1F6F7;
+    position: relative;
+    margin-bottom: 10px;
+}
+
