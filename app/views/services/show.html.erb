@@ -27,14 +27,15 @@
             </div>
             <div class="card_area d-flex align-items-center">
               <h4 class="card-trip-pricing">
-                <% if current_user.profile_photo.attached?  %>
+
+                <% if current_user && current_user.profile_photo.attached?  %>
                   <div class="d-flex justify-content-center mt-5">
                     <%= cl_image_tag current_user.profile_photo.key, height: 100, width: 100, crop: :fill, class: 'rounded-circle mx-auto' %>
                   </div>
                 <% else %>
                     <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-01_mwidxw.jpg", height: 100, width: 100, crop: :fill, class: 'rounded-circle mx-auto' %>
                 <% end %>
-                <%= link_to @service.user.name, user_show_path(slug: current_user) %>
+                <%= link_to @service.user.name, user_show_path(slug: @service.user) %>
               <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
             </div>
           </div>
@@ -65,7 +66,9 @@
         <% end %>
       <% end %>
       </div>
+      <% if current_user %>
         <%= render 'reviews/form', service: @service, review: @review %>
+      <% end %>
       </div>
     </div>
   </div>
