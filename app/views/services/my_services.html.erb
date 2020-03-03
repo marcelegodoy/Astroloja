@@ -1,14 +1,21 @@
-<div class="flex-container">
-    <% @services.each do |service| %>
-        <div class="card-trip">
-          <img src="https://i.picsum.photos/id/1042/500/200.jpg" />
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= link_to service.name, service_path(service) %></h2>
-              <p><%=service.description %></p>
-            </div>
-            <h2 class="card-trip-pricing"><%= service.price %></h2>
+<% @services.each do |service| %>
+    <div class="flex-container">
+      <div class="card-trip">
+        <img src="https://i.picsum.photos/id/1042/500/200.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= link_to service.name, service_path(service) %></h2>
+            <p><%=service.description %></p>
+          </div>
+          <div>
+          <h2 class="card-trip-pricing"><%= service.price %></h2>
+            <p><%= link_to 'Delete', service_path(service), method: :delete %></p>
           </div>
         </div>
-    <% end %>
+      </div>
+    </div>
+
+<% end %>
+<div class = 'container'>
+  <p><%= link_to 'New Sevices', new_service_path, class:"btn btn-secondary btn-lg"%></p>
 </div>

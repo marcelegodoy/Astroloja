@@ -50,7 +50,9 @@
   <div class="flex-container">
     <% @top_services.each do |service| %>
         <div class="card-trip">
-          <%= link_to 'Buy', new_service_order_path(service), class: "btn btn-light" %>
+          <% unless  current_user == service.user%>
+            <%= link_to 'Buy', new_service_order_path(service), class: "btn btn-light" %>
+          <% end %> %>
           <% if service.photo.attached? %>
             <%= cl_image_tag service.photo.key, crop: :fill %>
           <% else %>
@@ -72,11 +74,13 @@
   <div class="flex-container">
     <% @last_services.each do |service| %>
         <div class="card-trip">
-          <%= link_to 'Buy', new_service_order_path(service), class: "btn btn-light" %>
+          <%  unless current_user == service.user %>
+            <%= link_to 'Buy', new_service_order_path(service), class: "btn btn-light" %>
+          <% end %>
           <% if service.photo.attached? %>
             <%= cl_image_tag service.photo.key, crop: :fill %>
           <% else %>
-            <%= cl_image_tag "https://i.picsum.photos/id/1042/400/400.jpg", crop: :fill %>
+            <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-01_mwidxw.jpg", crop: :fill %>
           <% end %>
           <div class="card-trip-infos">
             <div>
@@ -89,3 +93,4 @@
     <% end %>
   </div>
 </div>
+

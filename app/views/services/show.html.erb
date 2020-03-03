@@ -20,7 +20,9 @@
               <li><p>Category : <%= link_to @service.category.name, services_path(category: @service.category) %></p></li>
             </ul>
             <p><%= @service.description %></p>
+            <% unless current_user == @service.user %>
               <button type="button" class="btn btn-outline-dark"><%= link_to 'Buy', new_service_order_path(@service) %></button>
+            <% end %>
           </div>
           <div class="card_area d-flex align-items-center">
             <h4 class="card-trip-pricing">
@@ -29,7 +31,7 @@
                   <%= cl_image_tag current_user.profile_photo.key, height: 100, width: 100, crop: :fill, class: 'rounded-circle mx-auto' %>
                 </div>
               <% else %>
-                  <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", height: 100, width: 100, crop: :fill, class: 'rounded-circle mx-auto' %>
+                  <%= cl_image_tag "https://i.picsum.photos/id/1042/400/400.jpg", height: 100, width: 100, crop: :fill, class: 'rounded-circle mx-auto' %>
               <% end %>
               <%= @service.user.name %></h4>
             <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
@@ -38,6 +40,7 @@
         </div>
 
         <% if policy(@service).edit? %>
+
           <p><%= link_to 'Edit this service', edit_service_path(@service) %></p>
           <p><%= link_to 'Remove this service', service_path, method: :delete %></p>
         <% end %>
