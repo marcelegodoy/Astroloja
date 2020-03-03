@@ -8,7 +8,6 @@
 
             <%= form_tag services_path, method: :get, class: "form-inline" do %>
               <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Busque serviços" %>
-              <%= hidden_field_tag :query, params[:query], class: "form-control", placeholder: "Category" %>
               <%= submit_tag "Procurar", class: "btn btn-white btn-just-icon btn-round" %>
             <% end %>
 
