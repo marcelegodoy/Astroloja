@@ -73,8 +73,8 @@ class ServicesController < ApplicationController
 
   def destroy
     @service.destroy
-    redirect_to services_path
     authorize @service
+    redirect_to services_path
   end
 
   def my_services
@@ -94,3 +94,4 @@ class ServicesController < ApplicationController
   end
 
 end
+
