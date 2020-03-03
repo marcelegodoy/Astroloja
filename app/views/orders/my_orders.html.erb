@@ -1,62 +1,44 @@
-<h1 class="text-center">Meus Pedidos</h1>
-<% @orders.each do |order|  %>
-  <div class="container">\
+<div id="title-page" class="text-center">
+  <h2>Minhas compras</h2>
+    <div class="container">
 
-    <h2 class="text-center"><%= order.service.name %></h2>
-    <p class="text-center"><%= order.service.description %></p>
-  </div>
-
-  <section class="order_details section-margin--small">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-            <div class="confirmation-card">
-              <h3 class="billing-title">Informações do pedido</h3>
-              <table class="order-rable">
-                <tr>
-                  <td>Order number</td>
-                  <td><%= order.service.id %></td>
-                </tr>
-                <tr>
-                  <td>Data</td>
-                  <td>29/02/2020</td>
-                </tr>
-                <tr>
-                  <td>Total</td>
-                  <td>R$ <%= order.service.price %></td>
-                </tr>
-              </table>
-            </div>
+    <% @orders.each do |order|  %>
+          <div id="table-orders" class="card text-white bg-light mb-3">
+            <table class="table">
+              <thead class="thead-dark">
+                  <tr>
+                    <th scope="col"><%= order.service.name %></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><%= order.service.description %></td>
+                  </tr>
+              </tbody>
+            </table>
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Informações do pedido</th>
+                    <th scope="col">Endereço do Vendedor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Order number: <%= order.service.id %></td>
+                    <td>Estado: <%= order.service.state.name %></td>
+                  </tr>
+                    <tr>
+                      <td>Data: <%= order.ordered_at %></td>
+                      <td>Cidade: <%= order.service.city %></td>
+                    </tr>
+                  <tr>
+                    <td>Total: R$ <%= order.service.price %></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </div>
+            </table>
           </div>
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-            <div class="confirmation-card">
-              <h3 class="billing-title">Endereço de Cobrança</h3>
-              <table class="order-rable">
-                <tr>
-                  <td>Estado:</td>
-                  <td><%= order.service.state.name %></td>
-                </tr>
-                <tr>
-                  <td>Cidade:</td>
-                  <td><%= order.service.city %></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-            <div class="confirmation-card">
-              <h3 class="billing-title">Endereço do Vendedor</h3>
-              <table class="order-rable">
-                <tr>
-                  <td>Estado:</td>
-                  <td><%= order.service.state.name %></td>
-                </tr>
-                <tr>
-                  <td>Cidade:</td>
-                  <td><%= order.service.city %></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-<% end  %>
+    <% end %>
+</div>

@@ -1,6 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
 
+
 .card-trip {
   height: 35vh;
   overflow: hidden;
@@ -42,32 +43,23 @@
   position: absolute;
   right: 16px;
   top: -20px;
-  width: 40px;
 }
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 42vh;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: relative;
   align-items: center;
 }
 
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
-
 .card-product h2 {
-  font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-product p {
-  font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -209,4 +201,18 @@
 #card-button {
   color: #303C92;
   position: absolute;
+}
+
+#table-orders {
+  margin-top: 30px;
+}
+
+#product-container {
+  margin-top: 30px;
+  align-items: flex-start;
+  padding: 0rem 6rem;
+}
+
+.single-prd-item img {
+  border-radius: 5px;
 }
