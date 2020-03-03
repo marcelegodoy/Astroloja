@@ -12,6 +12,7 @@
               <% end %>
             </div>
           </div>
+
           <div class="col-lg-5">
             <div class="s_product_text">
               <h3><%= @service.name %></h3>
@@ -34,9 +35,7 @@
                 <%= link_to @service.user.name, user_show_path(slug: current_user) %>
               <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
             </div>
-            </div>
           </div>
-
           <% if policy(@service).edit? %>
             <p><%= link_to 'Edit this service', edit_service_path(@service) %></p>
             <p><%= link_to 'Remove this service', service_path, method: :delete %></p>
@@ -44,9 +43,7 @@
           <p><%= link_to '↩️ Back to shop', services_path %></p>
         </div>
       </div>
-
   </div>
-<!--================Product Description Area =================-->
   <section class="product_description_area">
     <div id="product-container" class="container">
       <div class="container">
@@ -66,64 +63,22 @@
       </div>
     </div>
   </div>
-  <div id="product-container" class="container">
-    <div class="container">
-      <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="row total_rate">
-                    <div class="col-6">
-                      <div class="box_total">
-                        <h5>Overall</h5>
-                        <h4>4.0</h4>
-                        <h6>(03 Reviews)</h6>
-                      </div>
-                    </div>
-                    <div class="col-6">
-                      <div class="rating_list">
-                        <h3>Based on 3 Reviews</h3>
-                        <ul class="list">
-                          <li><a href="#">5 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                               class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                          <li><a href="#">4 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                               class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                          <li><a href="#">3 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                               class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                          <li><a href="#">2 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                               class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                          <li><a href="#">1 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                               class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="review_list">
-                    <div class="review_item">
-                      <div class="media">
-                        <div class="d-flex">
-                          <img src="img/product/review-1.png" alt="">
-                        </div>
-                        <div class="media-body">
-                          <h4>Fulano</h4>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                        </div>
-                      </div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+</div>
+<div class="container">
+  <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
+    <h2>
+      <%= pluralize @service.reviews.size, "review" %>
+    </h2>
+    <% if @service.reviews.blank? %>
+      Seja o primeiro a escrever um review para <%= @service.user.name %>
+    <% else %>
+      <% @service.reviews.each do |review| %>
+         <%= render 'reviews/show', review: review %>
+      <% end %>
+    <% end %>
+    </div>
+      <%= render 'reviews/form', service: @service, review: @review %>
     </div>
   </div>
-</section>
-  <!--================End Product Description Area =================-->
+</div>

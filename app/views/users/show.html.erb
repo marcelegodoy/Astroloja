@@ -4,7 +4,7 @@
       <%= cl_image_tag current_user.profile_photo.key, height: 200, width: 200, crop: :fill, class: 'rounded-circle mx-auto' %>
     </div>
   <% else %>
-      <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", height: 200, width: 200, crop: :fill, class: 'rounded-circle mx-auto' %>
+      <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-01_mwidxw.jpg", height: 200, width: 200, crop: :fill, class: 'rounded-circle mx-auto' %>
   <% end %>
 
   <div class = 'd-flex justify-content-center mt-0'> <h2 class="title"><%= @user.name %></h2></div>
