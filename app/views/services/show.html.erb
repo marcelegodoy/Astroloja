@@ -21,7 +21,9 @@
                 <li><p>Category : <%= link_to @service.category.name, services_path(category: @service.category) %></p></li>
               </ul>
               <p><%= @service.description %></p>
+              <% unless current_user == @service.user %>
                 <%= link_to 'Buy', new_service_order_path(@service), class:"btn btn-secondary btn-lg" %>
+              <% end %>
             </div>
             <div class="card_area d-flex align-items-center">
               <h4 class="card-trip-pricing">
@@ -53,13 +55,6 @@
              aria-selected="false">Reviews</a>
           </li>
         </ul>
-        <div class="review_item reply">
-          <div class="media">
-            <div class="d-flex">
-              <img src="img/product/review-2.png" alt="">
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
