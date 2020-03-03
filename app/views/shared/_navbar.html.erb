@@ -3,9 +3,8 @@
 
           <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
           <%= link_to root_path, class: "navbar-brand" do %>
-            <i class="fab fa-galactic-republic"></i>
+            <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-03_ygsmen.png", height: 100, width: 200, crop: :fill %>
           <% end %>
-
 
             <%= form_tag services_path, method: :get, class: "form-inline" do %>
               <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Busque serviços" %>
@@ -35,10 +34,10 @@
                       <% if current_user.profile_photo.attached?  %>
                         <%= cl_image_tag current_user.profile_photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
                       <% else %>
-                        <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                        <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-01_mwidxw.jpg", crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                       <% end %>
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <%= link_to "Minha conta", user_show_path(slug: current_user.username), class: "dropdown-item" %>
+                        <%= link_to "Minha conta", user_show_path(slug: current_user), class: "dropdown-item" %>
                         <%= link_to "Meus serviços", services_myservices_path, class: "dropdown-item" %>
                         <%= link_to "Minhas compras", orders_myorders_path, class: "dropdown-item" %>
                         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -58,4 +57,3 @@
 
   </div>
 </header>
-
