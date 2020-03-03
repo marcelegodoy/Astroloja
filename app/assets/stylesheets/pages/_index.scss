@@ -105,7 +105,9 @@
 
 .flex-container {
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  display: grid;
+  display: grid;border-radius: 5px;
+
+object-fit: cover;
   justify-content: space-between;
   margin-top: 40px;
 }
@@ -215,6 +217,7 @@
 
 .single-prd-item img {
   border-radius: 5px;
+  object-fit: cover;
 }
 
 #seila {
