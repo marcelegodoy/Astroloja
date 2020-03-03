@@ -8,6 +8,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 0px 20px;
   margin-bottom: 40px;
+  border-radius: 5px;
 }
 
 .card-trip > img {
@@ -203,4 +204,9 @@
 #services_content {
   height: 550px;
   width: 550px;
+}
+
+#card-button {
+  color: #303C92;
+  position: absolute;
 }
