@@ -3,10 +3,6 @@
 @import "avatar";
 @import "navbar";
 
-.container {
-    max-width: 1140px;
-}
-
 .hero-banner::before {
     content: "";
     display: block;
