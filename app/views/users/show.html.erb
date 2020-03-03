@@ -1,28 +1,36 @@
 <div class='container'>
-  <% if current_user.profile_photo.attached?  %>
-    <div class="d-flex justify-content-center mt-5">
-      <%= cl_image_tag current_user.profile_photo.key, height: 200, width: 200, crop: :fill, class: 'rounded-circle mx-auto' %>
+  <div class="d-flex justify-content-center mt-5">
+    <% if current_user.profile_photo.attached?  %>
+        <%= cl_image_tag current_user.profile_photo.key, height: 200, width: 200, crop: :fill, class: 'rounded-circle mx-auto' %>
+    <% else %>
+        <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-01_mwidxw.jpg", height: 200, width: 200, crop: :fill, class: 'rounded-circle mx-auto' %>
+    <% end %>
+  </div>
+  <div id="seila" class="desespero">
+    <div id="product-container" class="container">
+      <div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="/my_profile">Editar Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/services/myservices">Meus serviços</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/orders/myorders">Minhas compras</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="text-center">
+            <h3 class = 'd-flex ml-5'>Username: <%= @user.username %></h3>
+            <h3 class = 'd-flex ml-5'>E-mail: <%= @user.email %></h3>
+            <h3 class = 'd-flex ml-5'>Cidade: <%= @user.city %></h3>
+            <h3 class = 'd-flex ml-5'>Estado: <%= @user.state.name %></h3>
+          </div>
+        </div>
+      </div>
     </div>
-  <% else %>
-      <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-01_mwidxw.jpg", height: 200, width: 200, crop: :fill, class: 'rounded-circle mx-auto' %>
-  <% end %>
-
-  <div class = 'd-flex justify-content-center mt-0'> <h2 class="title"><%= @user.name %></h2></div>
-  <div>
-    <h3 class = 'd-flex ml-5'> <%= @user.username %></h3>
-    <h3 class = 'd-flex ml-5'> <%= @user.email %></h3>
-    <h3 class = 'd-flex ml-5'> <%= @user.city %></h3>
-    <h3 class = 'd-flex ml-5'> <%= @user.state.name %></h3>
-    <div>
-      <a class = 'btn btn primary'> Minhas compras </a>
-      <a class = 'btn btn primary'> Meus serviços </a>
-      <a href="/my_profile">Editar Perfil</a>
-
-
-    </div>
-
-
-
   </div>
 </div>
-

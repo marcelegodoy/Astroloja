@@ -8,7 +8,7 @@
               <% if @service.photo.attached? %>
                 <%= cl_image_tag @service.photo.key, height: 600, width: 600, crop: :fill %>
               <% else %>
-                <%= cl_image_tag "https://i.picsum.photos/id/1042/400/400.jpg", height: 600, width: 600, crop: :fill %>
+                <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-02_qksobx.jpg", height: 600, width: 600, crop: :fill %>
               <% end %>
             </div>
           </div>
@@ -22,7 +22,7 @@
               </ul>
               <p><%= @service.description %></p>
               <% unless current_user == @service.user %>
-                <%= link_to 'Buy', new_service_order_path(@service), class:"btn btn-secondary btn-lg" %>
+                <%= link_to 'Comprar', new_service_order_path(@service), class:"btn btn-secondary btn-lg" %>
               <% end %>
             </div>
             <div class="card_area d-flex align-items-center">
@@ -39,41 +39,34 @@
             </div>
           </div>
           <% if policy(@service).edit? %>
-            <p><%= link_to 'Edit this service', edit_service_path(@service) %></p>
-            <p><%= link_to 'Remove this service', service_path, method: :delete %></p>
+            <p><%= link_to 'Edit this service', edit_service_path(@service), class:"btn btn-secondary btn-lg" %></p>
+            <p><%= link_to 'Remove this service', service_path, class:"btn btn-secondary btn-lg" %></p>
           <% end %>
-          <p><%= link_to '↩️ Back to shop', services_path %></p>
+          <p><%= link_to 'Back to shop', services_path, class:"btn btn-secondary btn-lg" %></p>
         </div>
       </div>
   </div>
-  <section class="product_description_area">
-    <div id="product-container" class="container">
-      <div class="container">
-        <ul class="nav nav-tabs" id="myTab">
-          <li class="nav-item">
-            <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
+  <div id="product-container" class="container">
+      <ul class="nav nav-tabs" id="myTab">
+        <li class="nav-item">
+          <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
              aria-selected="false">Reviews</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-</div>
-<div class="container">
-  <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
-    <h2>
-      <%= pluralize @service.reviews.size, "review" %>
-    </h2>
-    <% if @service.reviews.blank? %>
-      Seja o primeiro a escrever um review para <%= @service.user.name %>
-    <% else %>
-      <% @service.reviews.each do |review| %>
-         <%= render 'reviews/show', review: review %>
+        </li>
+      </ul>
+    <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
+      <h2>
+        <%= pluralize @service.reviews.size, "review" %>
+      </h2>
+      <% if @service.reviews.blank? %>
+        Seja o primeiro a escrever um review para <%= @service.user.name %>
+      <% else %>
+        <% @service.reviews.each do |review| %>
+           <%= render 'reviews/show', review: review %>
+        <% end %>
       <% end %>
-    <% end %>
-    </div>
-      <%= render 'reviews/form', service: @service, review: @review %>
+      </div>
+        <%= render 'reviews/form', service: @service, review: @review %>
+      </div>
     </div>
   </div>
 </div>
