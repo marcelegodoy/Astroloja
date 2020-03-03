@@ -44,34 +44,37 @@
 </div>
 
 <div id="start-home" class="container text-center">
-  <h4>_Teste_</h4>
-  <h1>Mais Vendidos</h1>
-</div>
-  <div class="flex-container">
-    <% @top_services.each do |service| %>
-        <div class="card-trip">
-          <% unless  current_user == service.user%>
-            <%= link_to 'Buy', new_service_order_path(service), class: "btn btn-light" %>
-          <% end %> %>
-          <% if service.photo.attached? %>
-            <%= cl_image_tag service.photo.key, crop: :fill %>
-          <% else %>
-            <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-02_qksobx.jpg", crop: :fill %>
-          <% end %>
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= link_to service.name, service_path(service) %></h2>
-              <p><%=service.description %></p>
+  <div class="container text-center">
+    <h4>_Categoria_</h4>
+    <h1>Mais Vendidos</h1>
+  </div>
+    <div class="flex-container">
+      <% @top_services.each do |service| %>
+          <div class="card-trip">
+            <%  unless current_user == service.user %>
+              <%= link_to 'Buy', new_service_order_path(service), class: "btn btn-light" %>
+            <% end %>
+            <% if service.photo.attached? %>
+              <%= cl_image_tag service.photo.key, crop: :fill %>
+            <% else %>
+              <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-02_qksobx.jpg", crop: :fill %>
+            <% end %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= link_to service.name, service_path(service) %></h2>
+                <p><%=service.description %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= service.price %></h2>
             </div>
-            <h2 class="card-trip-pricing"><%= service.price %></h2>
           </div>
-        </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
+
 <div class="container text-center">
-  <h4>_Teste_</h4>
+  <h4>_Categoria_</h4>
   <h1>Novidades</h1>
 </div>
   <div class="flex-container">
