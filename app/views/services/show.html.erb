@@ -32,7 +32,7 @@
                     <%= cl_image_tag current_user.profile_photo.key, height: 100, width: 100, crop: :fill, class: 'rounded-circle mx-auto' %>
                   </div>
                 <% else %>
-                    <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", height: 100, width: 100, crop: :fill, class: 'rounded-circle mx-auto' %>
+                    <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-01_mwidxw.jpg", height: 100, width: 100, crop: :fill, class: 'rounded-circle mx-auto' %>
                 <% end %>
                 <%= link_to @service.user.name, user_show_path(slug: current_user) %>
               <p class="text-center"><%= @service.city %> - <%= @service.state.name %></p>
