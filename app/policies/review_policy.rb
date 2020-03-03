@@ -12,7 +12,12 @@ class ReviewPolicy < ApplicationPolicy
   def create?
     true
   end
+
   def destroy?
+    true
+  end
+
+  def show?
     true
   end
 end

@@ -9,15 +9,20 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @service = Service.find(params[:service_id])
     @review.user = current_user
-    @review.service = Service.find(params[:service_id])
+    @review.service = @service
     @review.save
     if @review.save
-      redirect_to services_path
+      redirect_to service_path(@service.id)
       authorize @review
     else
-      render :new
+      redirect_to services_path
     end
+  end
+
+  def show
+    authorize @review
   end
 
   def destroy

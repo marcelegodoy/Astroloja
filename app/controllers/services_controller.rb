@@ -32,6 +32,8 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    @review = Review.new
+    @user = current_user
     authorize @service
   end
 

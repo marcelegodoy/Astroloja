@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'orders/myorders', to: 'orders#my_orders'
 
   resources :services do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :show]
     resources :orders, only: [:new, :create]
   end
 
