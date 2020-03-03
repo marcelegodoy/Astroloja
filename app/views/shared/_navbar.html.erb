@@ -6,7 +6,7 @@
             <%= cl_image_tag "https://res.cloudinary.com/dgeodyyf7/image/upload/v1583239038/astroloja-03_ygsmen.png", height: 100, width: 200, crop: :fill %>
           <% end %>
 
-            <%= form_tag services_path, method: :get, class: "form-inline" do %>
+            <%= form_tag services_path, method: :get, class: "form-inline d-flex" do %>
               <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Busque serviços" %>
               <%= submit_tag "Procurar", class: "btn btn-secondary btn-sm" %>
             <% end %>
